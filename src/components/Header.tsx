@@ -1,24 +1,22 @@
 import styled from 'styled-components';
-import Logo from './Logo'
-import Navigation from './Navigation'
-import Settings from './Settings'
+import Logo from './Logo';
+import Navigation from './Navigation';
+import Settings from './Settings';
 
 const Wrapper = styled.header`
-  width: 90%;
   margin: 0 auto;
   margin-top: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  text-align: center;
-`
+`;
 
-export default function Header() {
+export default function Header(props: any) {
   return (
     <Wrapper>
       <Logo />
-      <Navigation />
+      <Navigation {...props} />
       <Settings />
     </Wrapper>
-  )
+  );
 }

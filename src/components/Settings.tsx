@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 const Div = styled.div`
-  flex-basis: 33%;
-  justify-content: 'space-between';
+  flex-basis: 25%;
+  display: flex;
+  justify-content: flex-end;
   * {
     margin: 0 0.5rem;
   }
-`
+`;
 
 export default function Settings() {
   return (
@@ -14,5 +15,5 @@ export default function Settings() {
       <button>Connection 🔴 </button>
       <button>Settings ⚙️</button>
     </Div>
-  )
+  );
 }

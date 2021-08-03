@@ -1,11 +1,12 @@
-import Header from './components/Header'
+import { RouteComponentProps } from '@reach/router';
+import Layout from './components/Layout';
 
-function App() {
+export const App: React.FC<RouteComponentProps> = () => {
   return (
-    <div>
-      <Header />
-    </div>
+    <Layout>
+      <h1>App</h1>
+    </Layout>
   );
-}
+};
 
 export default App;
