@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Connect from './Connect';
 
 const Div = styled.div`
   flex-basis: 25%;
@@ -12,8 +13,8 @@ const Div = styled.div`
 export default function Settings() {
   return (
     <Div>
-      <button>Connection 🔴 </button>
-      <button>Settings ⚙️</button>
+      <Connect />
+      <button>⚙️ Settings</button>
     </Div>
   );
 }
