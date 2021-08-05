@@ -5,23 +5,23 @@ import AppContext from './AppContext';
 
 const Connect = () => {
   // @ts-ignore
-  const { setPublicKey, version, setVersion, setBalance } =
+  const { version, setVersion, setMyPublicKey, setBalance } =
     React.useContext(AppContext);
   // @ts-ignore
 
   React.useEffect(() => {
-    // Grab the url from utils.
-    const url = getRpcURL();
-
-    // Create a PublicKey from the input value
+    // Get public wallet key from env variables.
     const myPublicKey = process.env.REACT_APP_PUBLIC_WALLET_KEY
       ? process.env.REACT_APP_PUBLIC_WALLET_KEY
       : '';
 
     // Set the public key on global state for display.
-    setPublicKey(myPublicKey);
+    setMyPublicKey(myPublicKey);
 
-    // Get the API version.
+    // Grab the url from utils.
+    const url = getRpcURL();
+
+    // Check if url is not undefined.
     const connection =
       url !== undefined ? new Connection(url) : new Connection('');
 
@@ -43,14 +43,12 @@ const Connect = () => {
     connection
       .getBalance(myAddress)
       .then((result) => {
-        // Set balance using setBalance and DECIMAL_OFFSET.
-        // We want to divide by offset to show the values in lamports instead of SOL.
         setBalance(result);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [setPublicKey, version, setVersion, setBalance]);
+  }, [version, setMyPublicKey, setVersion, setBalance]);
 
   return (
     <>

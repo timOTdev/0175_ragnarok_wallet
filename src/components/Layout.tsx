@@ -9,26 +9,26 @@ const ChildWrapper = styled.div`
 `;
 
 interface globalsContext {
-  publicKey: string;
-  setPublicKey: React.Dispatch<React.SetStateAction<string>>;
-  balance: number;
-  setBalance: React.Dispatch<React.SetStateAction<number>>;
   version: string;
   setVersion: React.Dispatch<React.SetStateAction<string>>;
+  myPublicKey: string;
+  setMyPublicKey: React.Dispatch<React.SetStateAction<string>>;
+  balance: number;
+  setBalance: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Layout = ({ children }: any) => {
-  const [publicKey, setPublicKey] = useState('');
-  const [balance, setBalance] = useState(0);
   const [version, setVersion] = useState('');
+  const [myPublicKey, setMyPublicKey] = useState('');
+  const [balance, setBalance] = useState(0);
 
   const globals: globalsContext = {
-    publicKey,
-    setPublicKey,
-    balance,
-    setBalance,
     version,
     setVersion,
+    myPublicKey,
+    setMyPublicKey,
+    balance,
+    setBalance,
   };
 
   return (
