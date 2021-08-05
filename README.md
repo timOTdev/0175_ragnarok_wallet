@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Ragnarok Wallet
+
+- Ragnarok Wallet is a themed wallet based off of the popular sprite-based game based called Ragnarok Online. This project is a remix of the Figment.io Solana Pathway project with some interesting developments.
+
+## Tech Stack
+
+- React - javascript library
+- Typescript - react superset
+- Styled-Components - styling library
+- solana/web3.js - API for interacting with RPC node to Solana
+- Datahub - data layer
+
+## Features
+
+- Wallet to display holdings
+- Sending tokens
+- Receiving tokens (planned)
+- Making a directory (planned)
+- Display NFTs (planned)
+
+===
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
