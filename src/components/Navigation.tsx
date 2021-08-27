@@ -36,7 +36,7 @@ export default function Navigation(props: any) {
           <a href='/receive'>Receive</a>
         </li>
         <li>
-          <a href='/directory'>Directory</a>
+          <a href='/transactions'>Transactions</a>
         </li>
       </Ul>
     </Div>

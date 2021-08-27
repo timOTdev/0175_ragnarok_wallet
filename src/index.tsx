@@ -7,7 +7,7 @@ import Nfts from './pages/Nfts';
 import Wallet from './pages/Wallet';
 import Send from './pages/Send';
 import Receive from './pages/Receive';
-import Directory from './pages/Directory';
+import Transactions from './pages/Transactions';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +18,7 @@ ReactDOM.render(
       <Wallet path='/wallet' />
       <Send path='/send' />
       <Receive path='/receive' />
-      <Directory path='/directory' />
+      <Transactions path='/transactions' />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
