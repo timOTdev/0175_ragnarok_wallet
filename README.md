@@ -11,6 +11,7 @@
 - Styled-Components - styling library
 - solana/web3.js - API for interacting with RPC node to Solana
 - Datahub - data layer
+- qrcode.react - used to generate QR code.
 
 ---
 
@@ -25,6 +26,13 @@
   - [ ] Copy pubkey button
   - [ ] QR code
 - [ ] Display NFTs
+
+---
+
+## Resources
+
+- [@solana/web3.js](https://solana-labs.github.io/solana-web3.js/index.html)
+- [qrcode.react](https://github.com/zpao/qrcode.react)
 
 ---
 
