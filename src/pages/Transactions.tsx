@@ -1,10 +1,11 @@
 import { RouteComponentProps } from '@reach/router';
 import Layout from '../components/Layout';
+import TransactionsView from '../components/TransactionsView';
 
 const Transactions: React.FC<RouteComponentProps> = () => {
   return (
     <Layout>
-      <h1>Transactions</h1>
+      <TransactionsView />
     </Layout>
   );
 };
