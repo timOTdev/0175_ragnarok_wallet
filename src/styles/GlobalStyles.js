@@ -8,6 +8,8 @@ export const GlobalStyles = createGlobalStyle`
     --purple: #8a27f3;
     --teal: #02a9f8;
     --blue: #1b73bd;
+    --indigo: #4e04fd;
+    --fuschia: #a730e6;
   }
   body {
     width: 90%;
