@@ -21,3 +21,8 @@ export const getAccountExplorerURL = (address) => {
 export const getTxExplorerURL = (signature) => {
   return `https://explorer.solana.com/tx/${signature}?cluster=devnet`;
 };
+
+// Converts numbers with commas.
+export const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
