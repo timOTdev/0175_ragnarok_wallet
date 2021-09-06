@@ -1,10 +1,10 @@
 import React from 'react';
 import AppContext from './AppContext';
 import styled from 'styled-components';
+import Conversions from './subcomponents/Conversions';
 import Twitter32 from '../images/twitter_32_min.png';
 import Reddit32 from '../images/reddit_32_min.png';
 import Sol32 from '../images/sol_32_min.png';
-import Sol16 from '../images/sol_16_min.png';
 import { numberWithCommas } from '../lib/utils';
 
 const Section = styled.section`
@@ -28,10 +28,6 @@ const Account = styled.article`
   align-items: center;
   justify-content: space-around;
   font-size: 2rem;
-  margin-bottom: 3rem;
-`;
-const Conversions = styled.article`
-  text-align: center;
   margin-bottom: 3rem;
 `;
 const Hr = styled.hr`
@@ -106,14 +102,7 @@ export default function WalletStats() {
         <p>${usd}</p>
       </Account>
 
-      <Conversions>
-        <p>
-          <img src={Sol16} alt='Solana Logo' />1 SOL = 1,000,000,000 Lamports
-        </p>
-        <p>
-          <img src={Sol16} alt='Solana Logo' /> 0.000000001 SOL = 1 Lamport
-        </p>
-      </Conversions>
+      <Conversions />
 
       <Hr />
 
