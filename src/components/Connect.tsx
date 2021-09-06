@@ -5,7 +5,7 @@ import AppContext from './AppContext';
 
 const Connect = () => {
   // @ts-ignore
-  const { version, setVersion, setMyPublicKey, setBalance } =
+  const { version, setVersion, setMyPublicKey, setBalance, setData } =
     React.useContext(AppContext);
   // @ts-ignore
 
@@ -50,9 +50,36 @@ const Connect = () => {
       });
   }, [version, setMyPublicKey, setVersion, setBalance]);
 
+  React.useEffect(() => {
+    fetch('https://api.coingecko.com/api/v3/coins/solana')
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data) {
+          console.error('notFound');
+          return;
+        }
+        setData({
+          currentPrice: data.market_data.current_price.usd,
+          rank: data.market_cap_rank,
+          marketCap: data.market_data.usd,
+          allTimeHigh: data.market_data.ath.usd,
+          allTimeHighPercent: data.market_data.ath_change_percentage.usd,
+          allTimeHighDate: data.market_data.ath_date.usd,
+          circulatingSupply: data.market_data.circulating_supply,
+          maxSupply: data.market_data.max_supply,
+          dayLow: data.market_data.low_24h.usd,
+          dayHigh: data.market_data.high_24h.usd,
+          positiveSentiment: data.sentiment_votes_up_percentage,
+          negativeSentiment: data.sentiment_votes_down_percentage,
+          subredditLink: data.links.subreddit_url,
+          twitterLink: data.links.twitter_screen_name,
+        });
+      });
+  }, [setData]);
+
   return (
     <>
-      {version && <button>🟢 v{version} </button>}
+      {version && <button>🟢 Devnet v{version} </button>}
       {!version && <button>🔴 Disconnected</button>}
     </>
   );
