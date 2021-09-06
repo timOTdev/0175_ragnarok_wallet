@@ -24,4 +24,13 @@ export const GlobalStyles = createGlobalStyle`
   h1 { font-size: 2.8rem; }
   h2 { font-size: 2.4rem; }
   h3 { font-size: 2rem; }
+  a:link {
+    color: var(--teal);
+    text-decoration: none;
+  }
+  a:visited,
+  a:active {
+    color: var(--purple);
+    text-decoration: none;
+  }
 `;

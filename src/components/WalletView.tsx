@@ -1,6 +1,8 @@
 import React from 'react';
 import AppContext from './AppContext';
 import styled from 'styled-components';
+import Twitter32 from '../images/twitter_32_min.png';
+import Reddit32 from '../images/reddit_32_min.png';
 import Sol32 from '../images/sol_32_min.png';
 import Sol16 from '../images/sol_16_min.png';
 import { numberWithCommas } from '../lib/utils';
@@ -9,7 +11,6 @@ const Section = styled.section`
   border: 1px solid #333333;
   width: 100%;
   border-radius: 5px;
-  padding: 2rem;
   box-shadow: 1px 1px 7px var(--teal);
   background: rgb(33, 212, 170);
   background: linear-gradient(
@@ -19,16 +20,30 @@ const Section = styled.section`
     rgba(190, 54, 236, 1) 100%
   );
 `;
+const H1 = styled.h1`
+  margin-left: 2rem;
+`;
 const Account = styled.article`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 2rem;
   margin-bottom: 3rem;
 `;
 const Conversions = styled.article`
   text-align: center;
   margin-bottom: 3rem;
+`;
+const Hr = styled.hr`
+  width: 70%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
 `;
 const Alpha = styled.article`
   display: flex;
@@ -38,24 +53,24 @@ const Alpha = styled.article`
   margin-bottom: 2rem;
 `;
 const AlphaM = styled.div``;
-const AlphaSides = styled.div`
-  font-size: 2rem;
-`;
+const AlphaSides = styled.div``;
 const Price = styled.p`
   font-size: 3rem;
-  margin: 2rem 0;
+  /* margin: 2rem 0; */
 `;
 const Rank = styled.p`
   font-size: 2rem;
-  margin: 2rem 0;
+  /* margin: 2rem 0; */
 `;
 const Links = styled.p`
   font-size: 1.6rem;
   margin: 2rem 0;
+  * {
+    margin: 0 0.5rem;
+  }
 `;
 const Beta = styled.article`
   display: flex;
-  justify-content: space-between;
 `;
 const BetaColumns = styled.div`
   width: 50%;
@@ -64,7 +79,7 @@ const BetaColumnsSeparator = styled.div`
   display: flex;
 `;
 const BetaColumnsValues = styled.div`
-  min-width: 50%;
+  margin: 0 auto;
   p {
     margin-bottom: 3rem;
   }
@@ -83,7 +98,7 @@ export default function WalletStats() {
   ).toFixed(0);
   return (
     <Section>
-      <h1 title={myPublicKey}>My Wallet</h1>
+      <H1 title={myPublicKey}>My Wallet</H1>
 
       <Account title={`${lamports} Lamports`}>
         <img src={Sol32} alt='Solana Logo' />
@@ -92,16 +107,20 @@ export default function WalletStats() {
       </Account>
 
       <Conversions>
-        <img src={Sol16} alt='Solana Logo' />1 SOL = 1,000,000,000 Lamports =
-        0.000000001 SOL
+        <p>
+          <img src={Sol16} alt='Solana Logo' />1 SOL = 1,000,000,000 Lamports
+        </p>
+        <p>
+          <img src={Sol16} alt='Solana Logo' /> 0.000000001 SOL = 1 Lamport
+        </p>
       </Conversions>
 
-      <hr />
+      <Hr />
 
       <Alpha>
         <AlphaSides>
-          <p>👍</p>
-          <p>{data.positiveSentiment}%</p>
+          <Price>${data.dayLow}</Price>
+          <p>24hr Lo</p>
         </AlphaSides>
         <AlphaM>
           <Price>${data.currentPrice}</Price>
@@ -112,21 +131,20 @@ export default function WalletStats() {
               target='_blank'
               rel='noopener noreferrer nofollow'
             >
-              Twitter
+              <img src={Twitter32} alt='Twitter Logo' />
             </a>{' '}
-            |{' '}
             <a
               href={data.subredditLink}
               target='_blank'
               rel='noopener noreferrer nofollow'
             >
-              Subreddit
+              <img src={Reddit32} alt='Reddit Logo' />
             </a>
           </Links>
         </AlphaM>
         <AlphaSides>
-          <p>👎</p>
-          <p>{data.negativeSentiment}%</p>
+          <Price>${data.dayHigh}</Price>
+          <p>24hr Hi</p>
         </AlphaSides>
       </Alpha>
 
@@ -148,19 +166,21 @@ export default function WalletStats() {
         <BetaColumns>
           <BetaColumnsSeparator>
             <BetaColumnsValues>
-              <p>24hr Low-High: </p>
-              <p>Current Supply: </p>
+              <p>Circulating Supply: </p>
               <p>Max Supply: </p>
+              <p>Sentiment: </p>
             </BetaColumnsValues>
             <BetaColumnsValues>
-              <p>
-                ${data.dayLow} - ${data.dayHigh}
-              </p>
               <p>
                 {numberWithCommas(data.circulatingSupply.toFixed(0))} (
                 {circulatingPercent}%)
               </p>
               <p>{numberWithCommas(data.maxSupply)} (100%)</p>
+              <p>
+                {data.positiveSentiment.toFixed(0)}
+                %👍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {data.negativeSentiment.toFixed(0)}%👎
+              </p>
             </BetaColumnsValues>
           </BetaColumnsSeparator>
         </BetaColumns>
