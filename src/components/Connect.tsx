@@ -79,7 +79,7 @@ const Connect = () => {
 
   return (
     <>
-      {version && <button>🟢 Devnet v{version} </button>}
+      {version && <button>🟢 Devnet {version} </button>}
       {!version && <button>🔴 Disconnected</button>}
     </>
   );

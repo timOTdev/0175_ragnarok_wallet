@@ -15,6 +15,7 @@ const Ul = styled.ul`
     width: 20%;
   }
   a {
+    color: var(--teal);
     text-decoration: none;
   }
 `;
@@ -23,9 +24,6 @@ export default function Navigation(props: any) {
   return (
     <Div>
       <Ul>
-        <li>
-          <a href='/nfts'>NFTs</a>
-        </li>
         <li>
           <a href='/wallet'>Wallet</a>
         </li>
@@ -37,6 +35,9 @@ export default function Navigation(props: any) {
         </li>
         <li>
           <a href='/transactions'>Transactions</a>
+        </li>
+        <li>
+          <a href='/nfts'>NFTs</a>
         </li>
       </Ul>
     </Div>
