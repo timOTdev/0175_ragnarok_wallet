@@ -7,7 +7,7 @@ const Section = styled.section`
   border: 1px solid #333333;
   width: 100%;
   border-radius: 5px;
-  padding: 1rem;
+  padding: 2rem;
   box-shadow: 1px 1px 7px var(--teal);
   background: rgb(33, 212, 170);
   background: linear-gradient(
@@ -16,12 +16,26 @@ const Section = styled.section`
     rgba(109, 136, 204, 1) 50%,
     rgba(190, 54, 236, 1) 100%
   );
+`;
+const Wallet = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    height: 20vh;
+    canvas {
+      display: none;
+    }
+  }
 `;
 const H2 = styled.h2`
   margin: 0;
+  width: 24%;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 const Div = styled.div`
   display: flex;
@@ -48,6 +62,7 @@ const Copied = styled.button`
   padding: 1rem;
   border: none;
   border-radius: 3px;
+  height: 60%;
   background: rgb(78, 4, 253);
   background: linear-gradient(
     90deg,
@@ -59,7 +74,7 @@ const Uncopied = styled.button`
   border-radius: 3px;
   border: none;
   padding: 1rem;
-  height: 50%;
+  height: 60%;
   background: rgb(78, 4, 253);
   background: linear-gradient(
     90deg,
@@ -70,13 +85,16 @@ const Uncopied = styled.button`
 
 export default function ReceiveView() {
   // @ts-ignore
-  const { myPublicKey } = React.useContext(AppContext);
-  const [text, setText] = useState('');
+  const { myPublicKey, testPublicKey } = React.useContext(AppContext);
   const [copied, setCopied] = useState(false);
   // @ts-ignore
 
-  const copy = () => {
-    let copyText: any = document.getElementById('myInput');
+  const copy = (pubKey: string) => {
+    // Grab either the
+    let copyText: any = pubKey === 'testPublicKey' ? 
+    document.getElementById('testPublicKey'):
+      document.getElementById('myPublicKey');
+    
     copyText.select();
     navigator.clipboard.writeText(copyText.value);
     setCopied(true);
@@ -85,20 +103,40 @@ export default function ReceiveView() {
     }, 2000);
   };
 
-  const inputHandler = (event: any) => {
-    // setText(event.target.value);
-  };
-
   return (
     <Section>
-      <H2>My public key</H2>
-      <Div>
-        <Textarea id='myInput' value={myPublicKey} />
-        <>
-          {copied ? <Copied>✔</Copied> : <Uncopied onClick={copy}>📄</Uncopied>}
-        </>
-      </Div>
-      <QRCode value={myPublicKey} />
+      <Wallet>
+        <H2>My Public Key</H2>
+        <Div>
+          <Textarea id='myPublicKey' defaultValue={myPublicKey} />
+          <>
+            {copied ? (
+              <Copied>✔</Copied>
+            ) : (
+              <Uncopied onClick={() => copy('myPublicKey')}>📄</Uncopied>
+            )}
+          </>
+        </Div>
+        <Div>
+          <QRCode value={myPublicKey} />
+        </Div>
+      </Wallet>
+      <Wallet>
+        <H2>My Test Key</H2>
+        <Div>
+          <Textarea id='testPublicKey' defaultValue={testPublicKey} />
+          <>
+            {copied ? (
+              <Copied>✔</Copied>
+            ) : (
+              <Uncopied onClick={() => copy('testPublicKey')}>📄</Uncopied>
+            )}
+          </>
+        </Div>
+        <Div>
+          <QRCode value={testPublicKey} />
+        </Div>
+      </Wallet>
     </Section>
   );
 }

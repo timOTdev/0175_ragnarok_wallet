@@ -32,6 +32,8 @@ interface globalsContext {
   setVersion: React.Dispatch<React.SetStateAction<string>>;
   myPublicKey: string;
   setMyPublicKey: React.Dispatch<React.SetStateAction<string>>;
+  testPublicKey: string;
+  setTestPublicKey: React.Dispatch<React.SetStateAction<string>>;
   balance: number;
   setBalance: React.Dispatch<React.SetStateAction<number>>;
   data: CoinDataProp;
@@ -41,6 +43,7 @@ interface globalsContext {
 const Layout = ({ children }: any) => {
   const [version, setVersion] = useState('');
   const [myPublicKey, setMyPublicKey] = useState('');
+  const [testPublicKey, setTestPublicKey] = useState('');
   const [balance, setBalance] = useState(0);
   const [data, setData] = useState<CoinDataProp>({
     currentPrice: 0,
@@ -64,6 +67,8 @@ const Layout = ({ children }: any) => {
     setVersion,
     myPublicKey,
     setMyPublicKey,
+    testPublicKey,
+    setTestPublicKey,
     balance,
     setBalance,
     data,

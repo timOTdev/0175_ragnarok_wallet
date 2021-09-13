@@ -5,7 +5,7 @@ import AppContext from './AppContext';
 
 const Connect = () => {
   // @ts-ignore
-  const { version, setVersion, setMyPublicKey, setBalance, setData } =
+  const { version, setVersion, setMyPublicKey, setTestPublicKey, setBalance, setData } =
     React.useContext(AppContext);
   // @ts-ignore
 
@@ -17,6 +17,14 @@ const Connect = () => {
 
     // Set the public key on global state for display.
     setMyPublicKey(myPublicKey);
+
+    // Get public test wallet key from env variables.
+    const testPublicKey = process.env.REACT_APP_TEST_PUBLIC_WALLET_KEY
+      ? process.env.REACT_APP_TEST_PUBLIC_WALLET_KEY
+      : '';
+
+    // Set the public test key on global state for display.
+    setTestPublicKey(testPublicKey);
 
     // Grab the url from utils.
     const url = getRpcURL();
@@ -48,7 +56,7 @@ const Connect = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [version, setMyPublicKey, setVersion, setBalance]);
+  }, [version, setMyPublicKey, setTestPublicKey, setVersion, setBalance]);
 
   React.useEffect(() => {
     fetch('https://api.coingecko.com/api/v3/coins/solana')
