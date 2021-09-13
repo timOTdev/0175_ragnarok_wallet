@@ -36,9 +36,9 @@ export default function Navigation(props: any) {
         <li>
           <a href='/transactions'>Transactions</a>
         </li>
-        <li>
+        {/* <li>
           <a href='/nfts'>NFTs</a>
-        </li>
+        </li> */}
       </Ul>
     </Div>
   );

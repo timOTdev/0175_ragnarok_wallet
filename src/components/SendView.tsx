@@ -74,7 +74,6 @@ const Submit = styled.div`
     padding: 1rem;
     &:hover {
       cursor: pointer;
-      /* color: var(--teal); */
       background: var(--blue);
       border: 5px outset var(--indigo);
     }

@@ -84,7 +84,7 @@ export default function TransactionsView() {
         shouldReload: true,
       });
     });
-  }, []);
+  }, [publicKey]);
 
   useEffect(() => {
     renderTransactions(state.data);
