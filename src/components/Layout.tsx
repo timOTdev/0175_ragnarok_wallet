@@ -23,7 +23,7 @@ interface CoinDataProp {
 
 const ChildWrapper = styled.div`
   height: 100%;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 `;
 
