@@ -39,6 +39,20 @@ const getTransactions = (myPublicKey: PublicKey): any => {
   return result;
 };
 
+const Section = styled.section`
+  border: 1px solid #333333;
+  width: 100%;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 1px 1px 7px var(--teal);
+  background: rgb(33, 212, 170);
+  background: linear-gradient(
+    210deg,
+    rgba(33, 212, 170, 1) 0%,
+    rgba(109, 136, 204, 1) 50%,
+    rgba(190, 54, 236, 1) 100%
+  );
+`;
 const Table = styled.table`
   border: 1px solid black;
   font-size: 1.8rem;
@@ -91,11 +105,10 @@ export default function TransactionsView() {
   }, [state.data]);
 
   return (
-    <>
+    <Section>
       <h1>Transactions</h1>
 
       <Table>
-        <caption>Latest Transactions</caption>
         <tbody>
           <HeaderRows>
             <HeaderCells>Status</HeaderCells>
@@ -105,9 +118,8 @@ export default function TransactionsView() {
           </HeaderRows>
           {renderTransactions(state.data)}
         </tbody>
-        <tfoot>***New transaction are listed first.</tfoot>
       </Table>
-    </>
+    </Section>
   );
 }
 

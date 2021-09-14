@@ -31,8 +31,9 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
   a:visited,
-  a:active {
-    color: var(--purple);
+  a:active
+  a:link {
+    color: var(--indigo);
     text-decoration: none;
   }
 `;
