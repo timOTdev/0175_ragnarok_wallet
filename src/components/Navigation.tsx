@@ -25,7 +25,7 @@ export default function Navigation(props: any) {
     <Div>
       <Ul>
         <li>
-          <a href='/wallet'>Wallet</a>
+          <a href='/'>Wallet</a>
         </li>
         <li>
           <a href='/send'>Send</a>
