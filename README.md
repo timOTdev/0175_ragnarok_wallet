@@ -1,6 +1,24 @@
 # Ragnarok Wallet
 
-- Ragnarok Wallet is a themed wallet based off of the popular sprite-based game based called Ragnarok Online. This project is a remix of the Figment.io Solana Pathway project with some interesting developments.
+- Ragnarok Wallet is a Solana wallet and a remix of the Figment.io Solana Pathway project with some custom developments.
+- Send coins to another wallet on devnet.
+- View current wallet balance updated from latest price from CoinGecko.
+- Copy wallet address or scan with QR code.
+- Show transaction history for wallet. (Periodically reseted by Datahub service)
+
+---
+
+## Features
+
+- [x] Wallet to display holdings
+- Sending tokens
+  - [x]Send to target address with specified amounts
+  - [ ] ~~Making a directory~~
+- Receiving tokens
+  - [x] Copy pubkey button
+  - [x] QR code
+- [x] Show transaction history
+- [ ] ~~Display NFTs~~
 
 ---
 
@@ -10,29 +28,47 @@
 - Typescript - react superset
 - Styled-Components - styling library
 - solana/web3.js - API for interacting with RPC node to Solana
-- Datahub - data layer
+- Datahub - data layer on blockchain
+- CoinGecko API - get latest price for solana and other information.
 - qrcode.react - used to generate QR code.
-
----
-
-## Features
-
-- [x] Wallet to display holdings
-- [ ] Show transaction history
-- Sending tokens
-  - [x]Send to target address with specified amounts
-  - [ ] Making a directory
-- Receiving tokens
-  - [ ] Copy pubkey button
-  - [ ] QR code
-- [ ] Display NFTs
 
 ---
 
 ## Resources
 
+- [Datahub](https://figment.io/datahub/)
+- [CoinGecko API](https://www.coingecko.com/en/api)
 - [@solana/web3.js](https://solana-labs.github.io/solana-web3.js/index.html)
 - [qrcode.react](https://github.com/zpao/qrcode.react)
+
+---
+
+## Getting Started with Ragnarok Wallet
+
+1. Make a new `.env.local` file and copy the format from `.env.example`.
+
+- You will need to generate 2 keypairs and add the values for:
+- REACT_APP_PUBLIC_WALLET_KEY=
+- REACT_APP_PRIVATE_WALLET_KEY=
+- REACT_APP_TEST_PUBLIC_WALLET_KEY=
+- REACT_APP_TEST_PRIVATE_WALLET_KEY=
+
+- Public Wallet Key should look like `ARFZVbY4QXAgVmWPh79UcVJJhXVihtGyqcgx7GaqcaZL`.
+- Private Wallet Key should be saved like `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]`
+
+- If you've gone through the figment Solana tutorial, you might already be familiar with this.
+- Otherwise you need to run this code in your own app.
+
+```js
+// See https://learn.figment.io/tutorials/create-solana-keypair
+const keypair = Keypair.generate();
+const address = keypair?.publicKey.toString();
+const secret = JSON.stringify(Array.from(keypair.secretKey));
+```
+
+2. You will need your own datahub API key. You can register at [Datahub](https://figment.io/datahub/). They have generous free offerings for developers.
+
+- Add that to your `.env.local` for REACT_APP_DATAHUB_API_KEY.
 
 ---
 
