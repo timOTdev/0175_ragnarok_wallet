@@ -5,12 +5,12 @@ const Div = styled.div`
 `;
 
 const Ul = styled.ul`
+  width: 40%;
   list-style-type: none;
   padding: 0;
   margin: 0;
-
   display: flex;
-  justify-content: 'space-around';
+  justify-content: space-around;
   li {
     width: 20%;
   }
@@ -22,24 +22,24 @@ const Ul = styled.ul`
 
 export default function Navigation(props: any) {
   return (
-    <Div>
+    <>
       <Ul>
         <li>
-          <a href='/'>Wallet</a>
+          <a href={`${process.env.PUBLIC_URL}/`}>Wallet</a>
         </li>
         <li>
-          <a href='/send'>Send</a>
+          <a href={`${process.env.PUBLIC_URL}/send`}>Send</a>
         </li>
         <li>
-          <a href='/receive'>Receive</a>
+          <a href={`${process.env.PUBLIC_URL}/receive`}>Receive</a>
         </li>
         <li>
-          <a href='/transactions'>Transactions</a>
+          <a href={`${process.env.PUBLIC_URL}/transactions`}>Transactions</a>
         </li>
         {/* <li>
-          <a href='/nfts'>NFTs</a>
+          <a href={`${process.env.PUBLIC_URL}/nfts`}>NFTs</a>
         </li> */}
       </Ul>
-    </Div>
+    </>
   );
 }

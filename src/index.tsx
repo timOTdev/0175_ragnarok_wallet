@@ -11,7 +11,7 @@ import Transactions from './pages/Transactions';
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />{' '}
-    <Router>
+    <Router basepath={`${process.env.PUBLIC_URL}/`}>
       <Wallet path='/' />
       <Send path='/send' />
       <Receive path='/receive' />
