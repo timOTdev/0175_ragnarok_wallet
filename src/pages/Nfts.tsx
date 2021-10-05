@@ -1,7 +1,6 @@
-import { RouteComponentProps } from '@reach/router';
 import Layout from '../components/Layout';
 
-const Nfts: React.FC<RouteComponentProps> = () => {
+const Nfts = () => {
   return (
     <Layout>
       <h1>NFTs</h1>

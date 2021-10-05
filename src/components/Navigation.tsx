@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-
-const Div = styled.div`
-  flex-basis: 50%;
-`;
+import { Link } from 'react-router-dom';
 
 const Ul = styled.ul`
   width: 40%;
@@ -25,20 +22,17 @@ export default function Navigation(props: any) {
     <>
       <Ul>
         <li>
-          <a href={`${process.env.PUBLIC_URL}/`}>Wallet</a>
+          <Link to='/'>Wallet</Link>
         </li>
         <li>
-          <a href={`${process.env.PUBLIC_URL}/send`}>Send</a>
+          <Link to='/send'>Send</Link>
         </li>
         <li>
-          <a href={`${process.env.PUBLIC_URL}/receive`}>Receive</a>
+          <Link to='/receive'>Receive</Link>
         </li>
         <li>
-          <a href={`${process.env.PUBLIC_URL}/transactions`}>Transactions</a>
+          <Link to='/transactions'>Transactions</Link>
         </li>
-        {/* <li>
-          <a href={`${process.env.PUBLIC_URL}/nfts`}>NFTs</a>
-        </li> */}
       </Ul>
     </>
   );

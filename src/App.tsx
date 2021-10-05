@@ -1,11 +1,20 @@
-import { RouteComponentProps } from '@reach/router';
-import Layout from './components/Layout';
+import { Switch, Route } from 'react-router-dom';
+import Wallet from './pages/Wallet';
+import Send from './pages/Send';
+import Receive from './pages/Receive';
+import Transactions from './pages/Transactions';
+import { BrowserRouter } from 'react-router-dom';
 
-export const App: React.FC<RouteComponentProps> = () => {
+export const App = () => {
   return (
-    <Layout>
-      <h1>App</h1>
-    </Layout>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Switch>
+        <Route exact path='/' component={Wallet} />
+        <Route path='/send' component={Send} />
+        <Route path='/receive' component={Receive} />
+        <Route path='/transactions' component={Transactions} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
