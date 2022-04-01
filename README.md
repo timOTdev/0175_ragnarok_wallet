@@ -4,7 +4,7 @@
 - Send coins to another wallet on devnet.
 - View current wallet balance updated from latest price from CoinGecko.
 - Copy wallet address or scan with QR code.
-- Show transaction history for wallet. (Periodically reseted by Datahub service)
+- Show transaction history for wallet. (Periodically will reset with Datahub free tier)
 
 ---
 
@@ -12,13 +12,11 @@
 
 - [x] Wallet to display holdings
 - Sending tokens
-  - [x]Send to target address with specified amounts
-  - [ ] ~~Making a directory~~
+  - [x] Send to target address with specified amounts
 - Receiving tokens
   - [x] Copy pubkey button
   - [x] QR code
 - [x] Show transaction history
-- [ ] ~~Display NFTs~~
 
 ---
 
@@ -29,8 +27,9 @@
 - Styled-Components - styling library
 - solana/web3.js - API for interacting with RPC node to Solana
 - Datahub - data layer on blockchain
-- CoinGecko API - get latest price for solana and other information.
-- qrcode.react - used to generate QR code.
+- CoinGecko API - get latest price for solana and other information
+- qrcode.react - used to generate QR code
+- Github Pages - used to deploy site
 
 ---
 
@@ -69,6 +68,15 @@ const secret = JSON.stringify(Array.from(keypair.secretKey));
 2. You will need your own datahub API key. You can register at [Datahub](https://figment.io/datahub/). They have generous free offerings for developers.
 
 - Add that to your `.env.local` for REACT_APP_DATAHUB_API_KEY.
+
+---
+
+## Working with Github Pages
+
+- Use commands in package.json to deploy and re-deploy.
+- Run `yarn predeploy` before `yarn deploy`.
+- A gh-pages branch will be handled automatically on Github.
+-
 
 ---
 
