@@ -92,6 +92,11 @@ export default function WalletStats() {
     (data.circulatingSupply / data.maxSupply) *
     100
   ).toFixed(0);
+  const maxSupply =
+    data.maxSupply !== null
+      ? numberWithCommas(data.maxSupply) + '(100%)'
+      : 'Undetermined';
+
   return (
     <Section>
       <H1 title={myPublicKey}>My Wallet</H1>
@@ -164,7 +169,7 @@ export default function WalletStats() {
                 {numberWithCommas(data.circulatingSupply.toFixed(0))} (
                 {circulatingPercent}%)
               </p>
-              <p>{numberWithCommas(data.maxSupply)} (100%)</p>
+              <p>{maxSupply}</p>
               <p>
                 {data.positiveSentiment.toFixed(0)}
                 %👍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
