@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/ragnarok_wallet/static/js/main.95ef42b0.chunk.js",
+    "main.js.map": "/ragnarok_wallet/static/js/main.95ef42b0.chunk.js.map",
+    "runtime-main.js": "/ragnarok_wallet/static/js/runtime-main.f6c5135e.js",
+    "runtime-main.js.map": "/ragnarok_wallet/static/js/runtime-main.f6c5135e.js.map",
+    "static/js/2.bf029908.chunk.js": "/ragnarok_wallet/static/js/2.bf029908.chunk.js",
+    "static/js/2.bf029908.chunk.js.map": "/ragnarok_wallet/static/js/2.bf029908.chunk.js.map",
+    "index.html": "/ragnarok_wallet/index.html",
+    "static/js/2.bf029908.chunk.js.LICENSE.txt": "/ragnarok_wallet/static/js/2.bf029908.chunk.js.LICENSE.txt",
+    "static/media/ragnarok.ac2a93d4.png": "/ragnarok_wallet/static/media/ragnarok.ac2a93d4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f6c5135e.js",
+    "static/js/2.bf029908.chunk.js",
+    "static/js/main.95ef42b0.chunk.js"
+  ]
+}
