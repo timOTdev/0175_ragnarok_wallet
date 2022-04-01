@@ -88,15 +88,10 @@ export default function WalletStats() {
   const lamports = numberWithCommas(balance);
   const sol = balance / 1_000_000_000;
   const usd = (sol * data.currentPrice).toFixed(2);
-  const circulatingPercent = (
-    (data.circulatingSupply / data.maxSupply) *
-    100
-  ).toFixed(0);
   const maxSupply =
     data.maxSupply !== null
       ? numberWithCommas(data.maxSupply) + '(100%)'
       : 'Undetermined';
-
   return (
     <Section>
       <H1 title={myPublicKey}>My Wallet</H1>
@@ -165,10 +160,7 @@ export default function WalletStats() {
               <p>Sentiment: </p>
             </BetaColumnsValues>
             <BetaColumnsValues>
-              <p>
-                {numberWithCommas(data.circulatingSupply.toFixed(0))} (
-                {circulatingPercent}%)
-              </p>
+              <p>{numberWithCommas(data.circulatingSupply.toFixed(0))}</p>
               <p>{maxSupply}</p>
               <p>
                 {data.positiveSentiment.toFixed(0)}

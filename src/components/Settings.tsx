@@ -14,7 +14,6 @@ export default function Settings() {
   return (
     <Div>
       <Connect />
-      <button>⚙️ Settings</button>
     </Div>
   );
 }
