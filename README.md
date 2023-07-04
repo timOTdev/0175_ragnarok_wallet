@@ -1,4 +1,6 @@
-# Ragnarok Wallet
+# 0175_ragnarok_wallet
+
+## Ragnarok Wallet
 
 - Ragnarok Wallet is a Solana wallet and a remix of the Figment.io Solana Pathway project with some custom developments.
 - Send coins to another wallet on devnet.
